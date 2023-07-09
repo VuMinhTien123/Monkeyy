@@ -2,6 +2,7 @@
 import DashboardLayout from './module/dashboard/DashboardLayout'
 import PostAddNew from './module/post/PostAddNew';
 import PostManage from './module/post/PostManage';
+import CategoryPage from './pages/CategoryPage';
 import DashboardPage from './pages/DashboardPages'
 import HomePage from "./pages/HomePage";
 import NotFoundPage from './pages/NotFoundPage'
@@ -13,6 +14,11 @@ import SignUpPage from "./pages/SignUpPage";
 import CategoryManage from './module/category/CategoryManage';
 import CategoryAddNew from './module/category/CategoryAddNew';
 import CategoryUpdate from './module/category/CategoryUpdate';
+import UserManage from './module/user/UserManage';
+import UserAddNew from './module/user/UserAddNew';
+import UserUpdate from './module/user/UserUpdate';
+import UserProfile from './module/user/UserProfile';
+import PostUpdate from './module/post/PostUpdate';
 
 
 
@@ -26,6 +32,10 @@ function App() {
           <Route path="/sign-in" element={<SignInPage></SignInPage>}></Route>
 
           <Route path="*" element={<NotFoundPage></NotFoundPage>}></Route>
+          <Route
+              path="/category/:slug"
+              element={<CategoryPage></CategoryPage>}
+            ></Route>
           <Route
             path="/:slug"
             element={<PostDetailsPage></PostDetailsPage>}
@@ -45,6 +55,10 @@ function App() {
               element={<PostAddNew></PostAddNew>}
             ></Route>
             <Route
+                path="/manage/update-post"
+                element={<PostUpdate></PostUpdate>}
+              ></Route>
+            <Route
                 path="/manage/category"
                 element={<CategoryManage></CategoryManage>}
               ></Route>
@@ -56,22 +70,22 @@ function App() {
                 path="/manage/update-category"
                 element={<CategoryUpdate></CategoryUpdate>}
               ></Route>
-              {/* <Route
+              <Route
                 path="/manage/user"
                 element={<UserManage></UserManage>}
-              ></Route> */}
-              {/* <Route
+              ></Route> 
+              <Route
                 path="/manage/add-user"
                 element={<UserAddNew></UserAddNew>}
-              ></Route> */}
-              {/* <Route
+              ></Route> 
+               <Route
                 path="/manage/update-user"
                 element={<UserUpdate></UserUpdate>}
-              ></Route> */}
-              {/* <Route
+              ></Route>
+               <Route
                 path="/profile"
                 element={<UserProfile></UserProfile>}
-              ></Route> */}
+              ></Route>
           </Route>
         </Routes>
       </AuthProvider>
